@@ -1,0 +1,25 @@
+# ExtremelyHelpfulDeveloperTools Configuration (Minecraft 1.21.11)
+
+# Maximum block distance to look for an entity when running /dps track
+max-tracking-distance: 50
+
+# Chat message formatting
+messages:
+  prefix: "&8[&bExtremelyHelpfulDevTools&8] &r"
+  track-started: "&aStarted tracking &e%entity% &7(UUID: %uuid%) &awith Initial Health: &c%health% HP&a."
+  track-stopped: "&cStopped tracking &e%entity%&c."
+  no-target: "&cNo living entity found in your crosshair line of sight (%distance% blocks max)."
+  already-tracking: "&eAlready tracking &a%entity%&e. Use &b/dps stop &eto cancel current session."
+  not-tracking: "&cYou are not currently tracking any entity."
+  status: "&7Tracking: &e%entity% &7| Initial HP: &c%initial_health% &7| Current HP: &c%current_health% &7| Hits: &a%hits%"
+  hit-logged: "&7[&cHit #%hit_index%&7] Raw Dmg: &c%raw_damage% &7| Final Dmg: &c%final_damage% &7| HP: &e%health_before% &7-> &a%health_after%"
+  summary-header: "&8&m=================&r &b&lEXTREMELY HELPFUL DEV TOOLS &8&m================="
+  summary-target: "&7Target Entity: &e%entity% &7(UUID: %uuid%)"
+  summary-initial-hp: "&7Health at Start of Tracking: &c%initial_health% HP"
+  summary-final-hp: "&7Health at Death: &c%final_health% HP"
+  summary-total-hits: "&7Total Hits Recorded: &a%total_hits%"
+  summary-duration: "&7Time Passed Since First Hit: &b%time_seconds%s"
+  summary-dps: "&7Calculated DPS: &d&l%dps% DPS"
+  summary-footer: "&8&m===================================================="
+  reload-success: "&aConfiguration reloaded successfully!"
+  no-permission: "&cYou do not have permission to execute this command."

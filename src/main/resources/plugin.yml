@@ -1,0 +1,36 @@
+name: ExtremelyHelpfulDeveloperTools
+version: '${version}'
+main: com.extremelyhelpful.devtools.ExtremelyHelpfulDeveloperTools
+api-version: '1.21'
+author: Antigravity
+description: Extremely Helpful Developer Tools plugin featuring entity health tracking and DPS calculations for Minecraft 1.21.11
+commands:
+  dps:
+    description: Track entity health and calculate DPS upon entity death.
+    usage: /dps <track|stop|status|reload|help>
+    permission: dpstracker.use
+    aliases: [dpstrack, trackdps, ehdt]
+  rename:
+    description: Rename the held item using predefined custom component entries.
+    usage: /rename <entry|reload>
+    permission: rename.use
+    aliases: [itemrename]
+permissions:
+  dpstracker.use:
+    description: Allows using the DPS tracker command
+    default: true
+  dpstracker.reload:
+    description: Allows reloading the DPS tracker configuration
+    default: op
+  rename.use:
+    description: Allows using the rename command for predefined entries
+    default: true
+  rename.reload:
+    description: Allows reloading the rename configuration
+    default: op
+  rename.bypass.cooldown:
+    description: Allows bypassing item rename command cooldowns
+    default: op
+  rename.bypass.exp:
+    description: Allows bypassing item rename XP level costs and requirements
+    default: op

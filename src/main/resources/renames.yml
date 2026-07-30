@@ -1,0 +1,42 @@
+# Rename Configuration File for ExtremelyHelpfulDeveloperTools
+
+# Universal settings for command usage
+settings:
+  # Universal cooldown in seconds (0 = disabled). Can be overridden per-entry under conditions.cooldown-seconds
+  cooldown-seconds: 0
+  # Universal XP level cost/requirement (0 = disabled). Can be overridden per-entry under conditions.cost-exp-levels
+  cost-exp-levels: 0
+  # Whether XP levels are consumed upon renaming (true) or just required (false)
+  consume-exp-levels: true
+
+entries:
+  ragnarok:
+    name: |-
+      {italic: 0b, fallback: "Ragnarok", translate: "incendium.item.ragnarok.name", color: "#CCEBDB"}
+    conditions:
+      materials:
+        - "BOW"
+      cooldown-seconds: 10
+      cost-exp-levels: 1
+
+  excalibur:
+    name: |-
+      {"text": "Excalibur", "color": "gold", "bold": true, "italic": false}
+    conditions:
+      materials:
+        - "DIAMOND_SWORD"
+        - "NETHERITE_SWORD"
+      cooldown-seconds: 5
+      cost-exp-levels: 2
+
+messages:
+  prefix: "&8[&bItemRename&8] &r"
+  no-item: "&cYou must be holding an item in your main hand to rename it."
+  entry-not-found: "&cRename entry '&e%entry%&c' was not found. Use TAB completion to see available entries."
+  condition-failed-material: "&cThis rename entry can only be applied to: %required_materials%."
+  condition-failed-permission: "&cYou do not have permission to use the '%entry%' rename entry."
+  cooldown: "&cYou must wait %seconds% more second(s) before using this rename entry again."
+  not-enough-exp: "&cYou need at least %levels% XP level(s) to use this rename entry."
+  rename-success: "&aSuccessfully renamed your item!"
+  reload-success: "&aRenames configuration reloaded successfully!"
+  no-permission: "&cYou do not have permission to use this command."
