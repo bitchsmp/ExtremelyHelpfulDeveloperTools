@@ -110,12 +110,12 @@ public class SpelunkingManager {
                         spawnedEntityIds.add(entityId);
                         colorEntityUuids.computeIfAbsent(colorName, k -> new ArrayList<>()).add(entityUuid.toString());
 
-                        // Spawn Shulker packet at block coordinate
+                        // Spawn BlockDisplay packet at block coordinate (zero collision, non-physical display entity)
                         WrapperPlayServerSpawnEntity spawnPacket = new WrapperPlayServerSpawnEntity(
                                 entityId,
                                 Optional.of(entityUuid),
-                                EntityTypes.SHULKER,
-                                new Vector3d(x + 0.5, y, z + 0.5),
+                                EntityTypes.BLOCK_DISPLAY,
+                                new Vector3d(x, y, z),
                                 0f,
                                 0f,
                                 0f,
@@ -124,9 +124,21 @@ public class SpelunkingManager {
                         );
                         PacketEvents.getAPI().getPlayerManager().sendPacket(player, spawnPacket);
 
-                        // Metadata: Bit 0x20 (Invisible) + 0x40 (Glowing) = 0x60
+                        // Metadata: Bit 0x40 (Glowing)
                         List<EntityData<?>> metadataList = new ArrayList<>();
-                        metadataList.add(new EntityData<>(0, EntityDataTypes.BYTE, (byte) 0x60));
+                        metadataList.add(new EntityData<>(0, EntityDataTypes.BYTE, (byte) 0x40));
+                        
+                        try {
+                            int glassStateId = io.github.retrooper.packetevents.util.SpigotConversionUtil.fromBukkitBlockData(Material.GLASS.createBlockData()).getGlobalId();
+                            metadataList.add(new EntityData<>(23, EntityDataTypes.BLOCK_STATE, glassStateId));
+                        } catch (Exception e) {
+                            try {
+                                int glassStateId = com.github.retrooper.packetevents.protocol.world.states.WrappedBlockState.getByString("minecraft:glass").getGlobalId();
+                                metadataList.add(new EntityData<>(23, EntityDataTypes.BLOCK_STATE, glassStateId));
+                            } catch (Exception ignored) {
+                            }
+                        }
+
                         WrapperPlayServerEntityMetadata metadataPacket = new WrapperPlayServerEntityMetadata(entityId, metadataList);
                         PacketEvents.getAPI().getPlayerManager().sendPacket(player, metadataPacket);
 
