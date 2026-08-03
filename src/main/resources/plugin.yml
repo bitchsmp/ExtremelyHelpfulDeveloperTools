@@ -24,7 +24,7 @@ commands:
 permissions:
   dpstracker.use:
     description: Allows using the DPS tracker command
-    default: true
+    default: op
   dpstracker.reload:
     description: Allows reloading the DPS tracker configuration
     default: op
