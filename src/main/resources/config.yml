@@ -3,6 +3,30 @@
 # Maximum block distance to look for an entity when running /dps track
 max-tracking-distance: 50
 
+# Spelunking feature configuration
+spelunking:
+  radius: 16
+  max-radius: 64
+  ores:
+    DIAMOND_ORE: "AQUA"
+    DEEPSLATE_DIAMOND_ORE: "AQUA"
+    EMERALD_ORE: "GREEN"
+    DEEPSLATE_EMERALD_ORE: "GREEN"
+    GOLD_ORE: "GOLD"
+    DEEPSLATE_GOLD_ORE: "GOLD"
+    RAW_GOLD_BLOCK: "GOLD"
+    IRON_ORE: "WHITE"
+    DEEPSLATE_IRON_ORE: "WHITE"
+    ANCIENT_DEBRIS: "RED"
+    LAPIS_ORE: "BLUE"
+    DEEPSLATE_LAPIS_ORE: "BLUE"
+    NETHER_GOLD_ORE: "GOLD"
+    NETHER_QUARTZ_ORE: "WHITE"
+    COAL_ORE: "DARK_GRAY"
+    DEEPSLATE_COAL_ORE: "DARK_GRAY"
+    COPPER_ORE: "LIGHT_PURPLE"
+    DEEPSLATE_COPPER_ORE: "LIGHT_PURPLE"
+
 # Chat message formatting
 messages:
   prefix: "&8[&bExtremelyHelpfulDevTools&8] &r"
@@ -23,3 +47,9 @@ messages:
   summary-footer: "&8&m===================================================="
   reload-success: "&aConfiguration reloaded successfully!"
   no-permission: "&cYou do not have permission to execute this command."
+  spelunking-started: "&aSpelunking activated for &e%player%&a! Found &b%count% &aores in %radius% block radius for &e%duration%&a."
+  spelunking-stopped: "&cSpelunking effect ended for &e%player%&c."
+  spelunking-no-ores: "&eNo configured ores found within %radius% blocks of &a%player%&e."
+  invalid-duration: "&cInvalid duration format. Examples: 30, 30s, 1m, 2m30s."
+  player-not-found: "&cPlayer '%player%' is not online."
+
