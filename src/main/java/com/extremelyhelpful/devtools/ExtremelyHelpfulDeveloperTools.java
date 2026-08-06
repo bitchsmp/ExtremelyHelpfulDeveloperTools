@@ -1,5 +1,7 @@
 package com.extremelyhelpful.devtools;
 
+import com.extremelyhelpful.devtools.endcrystal.EndCrystalListener;
+import com.extremelyhelpful.devtools.endcrystal.EndCrystalManager;
 import com.extremelyhelpful.devtools.rename.RenameCommand;
 import com.extremelyhelpful.devtools.rename.RenameManager;
 import com.extremelyhelpful.devtools.spelunking.SpelunkingCommand;
@@ -15,6 +17,7 @@ public class ExtremelyHelpfulDeveloperTools extends JavaPlugin {
     private TrackingManager trackingManager;
     private RenameManager renameManager;
     private SpelunkingManager spelunkingManager;
+    private EndCrystalManager endCrystalManager;
 
     @Override
     public void onLoad() {
@@ -32,10 +35,12 @@ public class ExtremelyHelpfulDeveloperTools extends JavaPlugin {
         this.trackingManager = new TrackingManager();
         this.renameManager = new RenameManager(this);
         this.spelunkingManager = new SpelunkingManager(this);
+        this.endCrystalManager = new EndCrystalManager(this);
 
         // Register listeners
         getServer().getPluginManager().registerEvents(new EntityDamageListener(this), this);
         getServer().getPluginManager().registerEvents(new SpelunkingListener(spelunkingManager), this);
+        getServer().getPluginManager().registerEvents(new EndCrystalListener(endCrystalManager), this);
 
         // Register commands
         DPSCommand dpsCommand = new DPSCommand(this);
@@ -86,6 +91,10 @@ public class ExtremelyHelpfulDeveloperTools extends JavaPlugin {
         return spelunkingManager;
     }
 
+    public EndCrystalManager getEndCrystalManager() {
+        return endCrystalManager;
+    }
+
     public void reloadPluginConfig() {
         reloadConfig();
         if (renameManager != null) {
@@ -93,6 +102,9 @@ public class ExtremelyHelpfulDeveloperTools extends JavaPlugin {
         }
         if (spelunkingManager != null) {
             spelunkingManager.loadConfig();
+        }
+        if (endCrystalManager != null) {
+            endCrystalManager.loadConfig();
         }
     }
 

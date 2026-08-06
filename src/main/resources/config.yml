@@ -3,6 +3,21 @@
 # Maximum block distance to look for an entity when running /dps track
 max-tracking-distance: 50
 
+# End Crystal explosion behavior configuration (per dimension/world)
+# Options for mode:
+#   "killed"  - Vanilla default: crystal is destroyed quietly by explosion damage without detonating.
+#   "explode" - Custom behavior: crystal detonates its own explosion when taking explosion damage.
+end-crystal:
+  default-mode: "killed"
+  explosion-power: 6.0
+  set-fire: false
+  break-blocks: true
+  dimensions:
+    world: "explode"
+    world_nether: "explode"
+    world_the_end: "killed"
+
+
 # Spelunking feature configuration
 spelunking:
   radius: 16
